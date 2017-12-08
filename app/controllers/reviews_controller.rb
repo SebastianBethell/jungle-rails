@@ -1,5 +1,8 @@
 class ReviewsController < ApplicationController
 
+
+  before_action :require_login
+
   def create
     @review = Review.new(review_params)
     @product = Product.find params[:product_id]
@@ -11,7 +14,6 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to @product, notice: 'Your review was successfully submitted.  Thank you!'
     else
-      flash[:notice] = 'Project saved successfully'
       redirect_to @product, notice: 'Your review was NOT submitted.  Your review needs both a description and a rating!'
     end
 
@@ -21,6 +23,12 @@ class ReviewsController < ApplicationController
 
     def review_params
       params.require(:review).permit(:description, :rating, :product_id, :user_id)
+    end
+
+    def require_login
+      unless current_user?
+        redirect_to @product, notice: "You must be logged in to write a review!"
+      end
     end
 
 end
