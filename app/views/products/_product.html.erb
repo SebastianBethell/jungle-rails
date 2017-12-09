@@ -28,27 +28,20 @@
   <% end %>
 <!-- This is my janky way of finding the average of the reviews -->
   <div class="rating">
-    <% reviews_for_this_product = @reviews.where(product_id: product.id) %> <!-- finds the reviews for each product -->
-    <% @total_of_reviews = 0 %>
-    <% @index_for_reviews_each = 0 %>
-    <% if reviews_for_this_product != [] %> <!-- if there ARE reviews for this product do the .each loop -->
-      <% reviews_for_this_product.each do |review| %>
-        <% @total_of_reviews += review.rating %>
-        <% @index_for_reviews_each += 1 %>
-      <% end %>
-      <%  @avg_review = @total_of_reviews / @index_for_reviews_each %> <!-- @avg_review is for the cool star icons -->
-      <% @numerical_review = @total_of_reviews.to_f / @index_for_reviews_each %>
-      <h5>Rated by our users as: <%= @numerical_review %> out of 5</h5>
-      <% of_five = 5 - @avg_review %>
-      <% @avg_review.times do %>
+    <% reviews_this_prod = @reviews.where(product_id: product.id).pluck(:rating) %> <!-- makes an array of the ratings for this product -->
+    <% reviews_this_prod = reviews_this_prod.sum / reviews_this_prod.size.to_f%>
+    <% if reviews_this_prod.nan? %>
+      <h5>This product has not yet been rated</h5>
+    <% else %>
+      <h5>Rated by our users as: <%= reviews_this_prod %> out of 5</h5>
+      <% reviews_this_prod.to_i.times do %>
         <i class="fa fa-star"></i>
       <% end %>
-      <% of_five.times do %>
-         <i class="fa fa-star-o"></i>
+      <% 5 - reviews_this_prod.to_i.times do %>
+        <i class="fa fa-star-o"></i>
       <% end %>
-    <% else %>
-      <h5>This product has not yet been rated</h5>
     <% end %>
+
   </div>
 
 </article>
