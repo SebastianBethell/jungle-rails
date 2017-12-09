@@ -47,9 +47,18 @@
             <% @product.review.reverse_each do |review| %>
               <div class="review">
                 <div>Review: <%= review.description %></div>
-                <div>Rating: <%= review.rating %>/ 5</div>
-                <% if current_user.id == review.user_id %>
-                  <%= link_to 'Delete', review, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <div>Rating: <%= review.rating %> / 5</div>
+                <% of_five = 5 - review.rating %>
+                <% review.rating.times do %>
+                  <i class="fa fa-star"></i>
+                <% end %>
+                <% of_five.times do %>
+                   <i class="fa fa-star-o"></i>
+                <% end %>
+                <% if current_user %>
+                  <% if current_user.id == review.user_id %>
+                    <%= link_to 'Delete', review, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <% end %>
                 <% end %>
                </div>
             <% end %>
