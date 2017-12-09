@@ -5,10 +5,12 @@ In this project I inherited and existing code base and added features to it as w
 
 
 ## Screenshots
-!["screenshot description"](path ones it's on github)
-!["screenshot description"](path ones it's on github)
-!["screenshot description"](path ones it's on github)
-!["screenshot description"](path ones it's on github)
+!["This shows the main page to feature avg. rating on a product as well as the sold out badge "](https://github.com/SebastianBethell/jungle-rails/blob/master/docs/main-page-sold-out.png)
+!["Products can be reviewed by a logged in user.  Only THAT user can delete the review."](https://github.com/SebastianBethell/jungle-rails/blob/master/docs/product-reviews.png)
+!["To access any of the admin pages/options the user must know the admin login information"](https://github.com/SebastianBethell/jungle-rails/blob/master/docs/admin-auth.png)
+!["Only the admin can create new catagories which new products can then be added to"](https://github.com/SebastianBethell/jungle-rails/blob/master/docs/admin-categories.png)
+
+
 
 ## Setup
 
