@@ -9,6 +9,8 @@ A user can visit the main page for a listing of all products or view them by cat
 
 There is an admin section which allows new products and catagories to be added.  The admin section is restricted by HTTP authorization.
 
+For the second half of this project the development was some using Test Driven Development using Rspec.
+
 
 ## Screenshots
 !["This shows the main page to feature avg. rating on a product as well as the sold out badge "](https://github.com/SebastianBethell/jungle-rails/blob/master/docs/main-page-sold-out.png)
