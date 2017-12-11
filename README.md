@@ -1,7 +1,13 @@
 # Jungle
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
-In this project I inherited and existing code base and added features to it as well as fixed bugs
+In this project I inherited an existing code base and added features to it as well as fixed bugs.
+
+This app was build with Ruby on Rails, PostgreSQL, Bcrypt, and Stripe.  The styling was done with Bootstrap, Sass and Css.
+
+A user can visit the main page for a listing of all products or view them by catagory.  I have added user registration which allows creation/destruction of reviews which are attached to that particular user.  A user can purchase a product and the payment system uses Stripe for processing.
+
+There is an admin section which allows new products and catagories to be added.  The admin section is restricted by HTTP authorization.
 
 
 ## Screenshots
